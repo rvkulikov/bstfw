@@ -2,11 +2,9 @@ version: '3.7'
 
 services:
   bstfw.r:
-    build:
-      context: .
-      dockerfile: ./docker/r.Dockerfile
-    working_dir: /var/www/html
+    privileged: true
     tty: true
+    image: r-base:latest
+    working_dir: /var/www/html
     volumes:
       - ./rscript:/var/www/html
-    privileged: true

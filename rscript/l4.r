@@ -1,3 +1,3 @@
-#!/usr/bin/rs
+#!/usr/bin/Rscript
 
-choose(5,3)
+choose(24,12) * (1/2)^12 * (1 - 1/2)^(24-12)
