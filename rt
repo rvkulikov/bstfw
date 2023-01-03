@@ -1,2 +1,2 @@
 #!/usr/bin/bash
-docker-compose exec "bstfw.rk" bash
+docker-compose exec "bstfw.rt" bash
