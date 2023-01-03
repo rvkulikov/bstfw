@@ -1,10 +1,18 @@
 version: '3.7'
 
 services:
-  bstfw.r:
+  bstfw.rk:
     privileged: true
     tty: true
     image: r-base:latest
     working_dir: /var/www/html
     volumes:
-      - ./rscript:/var/www/html
+      - ./krv/rscript:/var/www/html
+
+  bstfw.rt:
+    privileged: true
+    tty: true
+    image: r-base:latest
+    working_dir: /var/www/html
+    volumes:
+      - ./tkv/rscript:/var/www/html

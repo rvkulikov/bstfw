@@ -1,1 +1,0 @@
-docker-compose exec "bstfw.r" bash
