@@ -8,18 +8,15 @@ k = 1
 n = 12
 p = 1/20 + 1/20
 
-"k"; k
-"n"; n
-"p"; p
-
-"Ответ = B(1; 12, 1/10)"
+sprintf("formula is B(k=%s; n=%s, p=%s)", k, n, p);
 
 "----------------------------"
 
 "Задача 2: В колоде из 52 карт четыре туза. Вы вытягиваете карту, возвращаете ее обратно, тасуете колоду и снова вытягиваете карту. Сколькими способами можно вытянуть только одного туза за пять попыток?"
 
 bin = choose(5,1)
-"Ответ, шт"; bin;
+
+sprintf("bin is %s", bin);
 
 
 "----------------------------"
@@ -33,17 +30,10 @@ p = 4/52
 bin = choose(n,k)
 l1 = p^k
 l2 = (1 - p)^(n-k)
-res = bin * l1 * l2
-perc = res * 100
 
+res = round(bin * l1 * l2, digits=2)
 
-252 * (4/52)^5 * (1 - 4/52)^5
-
-"bin (answer)"; bin;
-"l1"; l1;
-"l2"; l2;
-"res (num)"; res;
-"Ответ (%)"; perc;
+sprintf("res is %s", res)
 
 "----------------------------"
 
@@ -54,11 +44,9 @@ n = 7
 p = 1/5
 
 
-res = pbinom(k, n, p, lower.tail=FALSE)
-perc = res * 100
+res = round(pbinom(k, n, p, lower.tail=FALSE), digits=2)
 
-"res"; res;
-"Ответ (%)"; perc;
+sprintf("pbinom is %s", res)
 
 "----------------------------"
 
@@ -67,19 +55,17 @@ perc = res * 100
 "Предположил, что не нужно будет раскладывать 25 на 7 и 18, так как это не в духе главы"
 
 k = 2 - 1
-n = 25
-p = 1 / 10
+n1 = 7; n2 = 25
+p1 = 1/5; p2=1/10
 
-res1 = pbinom(k, 7, 1/5, lower.tail=FALSE)
-res2 = pbinom(k, 25, 1/10, lower.tail=FALSE)
-ratio = res2 / res1
+res1 = round(pbinom(k, n1, p1, lower.tail=FALSE), digits=2)
+res2 = round(pbinom(k, n2, p2, lower.tail=FALSE), digits=2)
+ratio = round(res2 / res1, digits=2)
 
-"res1"; res1;
-"res2"; res2;
-"ratio"; ratio;
+sprintf("res1 %s, res2 %s, ratio %s", res1, res2, ratio)
 
 if(ratio >= 2){
-  "Ответ: повышает вероятность более чем в 2 раза, стоит пройти 25 собеседований"
+  sprintf("Ответ: повышает вероятность более чем в 2 раза (%s), стоит пройти %s собеседований", ratio, n2)
 }else{
-  "Ответ: не повышает вероятность более чем в 2 раза, остановиться на 7 собеседованиях"
+  sprintf("Ответ: не повышает вероятность более чем в 2 раза (%s), остановиться на %s собеседованиях", ratio, n1)
 }
